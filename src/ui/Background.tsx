@@ -1,32 +1,25 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
+import useRedirect from "../hooks/useRedirect";
+
 interface BackgroundProps {
   first?: boolean;
   children?: JSX.Element | undefined;
 }
 const Background: React.FC<BackgroundProps> = ({ first, children }) => {
-  const [show, setShow] = useState(false);
-  const closeSideBar = () => {
-    setShow(false);
-  };
+  const { redirectFunc } = useRedirect();
+  redirectFunc();
+
+  const arr = window.location.href.split("/");
+  localStorage.setItem("currentUrl", arr[arr.length - 1]);
   if (!first) {
     return (
       <StyledBackground>
-        {/* <Link to="/menu">
-          <StyledImage
-            onClick={() => setShow(true)}
-            alt="menu"
-            src="/images/icons/menu.svg"
-          />
-        </Link> */}
-        <a href="#menu">
-          <StyledImage
-            onClick={() => setShow(true)}
-            alt="menu"
-            src="/images/icons/menu.svg"
-          />
-        </a>
+        <Link to="/menu">
+          <StyledImage alt="menu" src="/images/icons/menu.svg" />
+        </Link>
+
         {children}
       </StyledBackground>
     );

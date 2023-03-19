@@ -2,6 +2,7 @@
 declare global {
   interface Window {
     callBackHandler: Function;
+    li: Function;
   }
 }
 

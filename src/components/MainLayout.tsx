@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import Button from "../ui/Button";
 
+import Background from "../ui/Background";
 interface MainLayoutProps {
   icon: {
     text?: string;
@@ -22,30 +23,32 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   button,
 }) => {
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      spacing={12}
-    >
-      <Grid item mb={-6}>
-        {icon.text ? (
-          <Typography variant={"xl"}>{icon.text}</Typography>
-        ) : (
-          <img src={icon.src} alt={"메인 레이아웃 아이콘"} />
-        )}
+    <Background>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={12}
+      >
+        <Grid item mb={-6}>
+          {icon.text ? (
+            <Typography variant={"xl"}>{icon.text}</Typography>
+          ) : (
+            <img src={icon.src} alt={"메인 레이아웃 아이콘"} />
+          )}
+        </Grid>
+        <Grid textAlign={"center"} item>
+          <Typography variant={"md"}>{title}</Typography>
+        </Grid>
+        <Grid item>{children}</Grid>
+        <Grid item>
+          <Button link={button.link ?? ""} onClick={button.onClick}>
+            {button.text}
+          </Button>
+        </Grid>
       </Grid>
-      <Grid textAlign={"center"} item>
-        <Typography variant={"md"}>{title}</Typography>
-      </Grid>
-      <Grid item>{children}</Grid>
-      <Grid item>
-        <Button link={button.link ?? ""} onClick={button.onClick}>
-          {button.text}
-        </Button>
-      </Grid>
-    </Grid>
+    </Background>
   );
 };
 

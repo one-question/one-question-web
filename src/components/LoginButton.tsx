@@ -5,24 +5,16 @@ const LoginButton = () => {
 
   return (
     <Button onClick={() => (window.location.href = URL)}>
-      구글 계정으로 로그인하기
+      <img
+        width={20}
+        height={20}
+        style={{ marginRight: "8px" }}
+        src={"/images/signinlogo.png"}
+        alt={"로그인 구글 로고"}
+      />
+      <div>구글 계정으로 로그인하기</div>
     </Button>
   );
-};
-
-const styles = {
-  googleStyle: {
-    backgroundColor: "#fff",
-    border: "1px solid #dadce0",
-    color: "#3c4043",
-    cursor: "pointer",
-    fontSize: "14px",
-    height: "40px",
-    letterSpacing: "0.25px",
-    outline: "none",
-    padding: "0 12px",
-    width: "auto",
-  },
 };
 
 export default LoginButton;

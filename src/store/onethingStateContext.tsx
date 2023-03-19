@@ -14,9 +14,9 @@ const initialValue: StateType = {
   onethingState: "INITIAL",
   setOnethingState: () => {},
 };
-const StateContext = createContext(initialValue);
+const OnethingStateContext = createContext(initialValue);
 
-const StateContextProvider: React.FC<{ children: JSX.Element }> = ({
+const OnethingStateContextProvider: React.FC<{ children: JSX.Element }> = ({
   children,
 }) => {
   const [state, setState] = useState<Onething>("INITIAL");
@@ -29,10 +29,10 @@ const StateContextProvider: React.FC<{ children: JSX.Element }> = ({
     setOnethingState: setOnethingState,
   };
   return (
-    <StateContext.Provider value={contextValue}>
+    <OnethingStateContext.Provider value={contextValue}>
       {children}
-    </StateContext.Provider>
+    </OnethingStateContext.Provider>
   );
 };
 
-export { StateContext, StateContextProvider };
+export { OnethingStateContext, OnethingStateContextProvider };

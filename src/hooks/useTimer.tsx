@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { StateContext } from "../store/state";
+import { OnethingStateContext } from "../store/onethingStateContext";
 
 interface Timer {
   hour: number;
@@ -12,7 +12,7 @@ interface Timer {
 }
 const useTimer = () => {
   const navigate = useNavigate();
-  const state = useContext(StateContext);
+  const state = useContext(OnethingStateContext);
 
   const [timer, setTimer] = useState<Timer | null>(null);
   const dueDate = dayjs(JSON.parse(localStorage.getItem("time") ?? ""));

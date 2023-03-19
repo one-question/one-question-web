@@ -1,17 +1,20 @@
+import { Grid, Typography } from "@mui/material";
 const Menu = () => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        backgroundColor: "black",
-      }}
+    <Grid
+      container
+      direction="column"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      spacing={8}
+      height={"100%"}
     >
-      this is menu
-    </div>
+      <Grid item>
+        <Typography variant={"lg"}>이종원 님</Typography>
+      </Grid>
+      <Grid item>프로필</Grid>
+      <Grid item>결제 정보</Grid>
+    </Grid>
   );
 };
 
